@@ -9,6 +9,10 @@ workspace "StoneSword"
     }
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+IncludeDir = {}
+IncludeDir["GLFW"] = "StoneSword/vendor/GLFW/include"
+
+include "StoneSword/vendor/GLFW"
 
 project "StoneSword"
     location "StoneSword"
@@ -25,7 +29,14 @@ project "StoneSword"
     }
 
     includedirs{
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/src",
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links{
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"

@@ -260,3 +260,10 @@ paket-files/
 __pycache__/
 *.pyc
 /bin-int/Debug-x64
+/bin-int/Debug-windows-x86_64/StoneSword
+/Sandbox/Sandbox.vcxproj
+/StoneSword/StoneSword.vcxproj
+/StoneSword/StoneSword.vcxproj.filters
+/StoneSword/vendor/GLFW/GLFW.vcxproj
+/StoneSword/vendor/GLFW/GLFW.vcxproj.filters
+/StoneSword/vendor/GLFW/bin-int/Debug-windows-x86_64/GLFW
