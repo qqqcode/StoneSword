@@ -11,8 +11,12 @@ workspace "StoneSword"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "StoneSword/vendor/GLFW/include"
+IncludeDir["Glad"] = "StoneSword/vendor/Glad/include"
+IncludeDir["ImGui"] = "StoneSword/vendor/ImGui"
 
 include "StoneSword/vendor/GLFW"
+include "StoneSword/vendor/Glad"
+include "StoneSword/vendor/ImGui"
 
 project "StoneSword"
     location "StoneSword"
@@ -31,11 +35,15 @@ project "StoneSword"
     includedirs{
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.Glad}"
     }
 
     links{
         "GLFW",
+        "Glad",
+        "ImGui",
         "opengl32.lib"
     }
 
@@ -46,7 +54,8 @@ project "StoneSword"
 
         defines{
             "SS_PLATFROM_WINDOWS",
-            "SS_BUILD_DLL"
+            "SS_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands{
@@ -55,14 +64,17 @@ project "StoneSword"
 
     filter "configurations:Debug"
         defines "SS_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "SS_RELEASE"
+        buildoptions "/MD"
         optimize "On"
     
     filter "configurations:Dist"
         defines "SS_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 project "Sandbox"
@@ -100,12 +112,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "SS_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "SS_RELEASE"
+        buildoptions "/MD"
         optimize "On"
     
     filter "configurations:Dist"
         defines "SS_DIST"
+        buildoptions "/MD"
         optimize "On"

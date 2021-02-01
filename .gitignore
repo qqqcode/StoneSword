@@ -267,3 +267,8 @@ __pycache__/
 /StoneSword/vendor/GLFW/GLFW.vcxproj
 /StoneSword/vendor/GLFW/GLFW.vcxproj.filters
 /StoneSword/vendor/GLFW/bin-int/Debug-windows-x86_64/GLFW
+/StoneSword/vendor/Glad/bin-int/Debug-windows-x86_64/Glad/Glad.tlog
+/StoneSword/vendor/Glad/GLAD.vcxproj
+/StoneSword/vendor/Glad/GLAD.vcxproj.filters
+/StoneSword/vendor/ImGui/.github
+/StoneSword/vendor/ImGui/docs
